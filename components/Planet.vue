@@ -135,6 +135,9 @@ section {
             position: absolute;
             width: 175px;
             top: 70%;
+            @media only screen and (max-width: 850px) {
+                width: 120px;
+            }
             @media only screen and (max-width: 630px) {
                 width: 75px;
             }
