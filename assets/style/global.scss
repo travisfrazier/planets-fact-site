@@ -1,0 +1,95 @@
+//reset 
+@import './reset';
+
+//fonts 
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@400;700&display=swap');
+$font-antonio: 'Antonio', sans-serif;
+$font-spartan: 'League Spartan', sans-serif;
+
+//colors 
+$color-white: #ffffff;
+$color-black: #070724;
+$color-dark-grey: #38384f;
+$color-light-grey: #838391;
+$color-blue-one: #419ebb;
+$color-yellow: #eda249;
+$color-purple: #6f2ed6;
+$color-red-one: #d14c32;
+$color-red-two: #d83a34;
+$color-orange: #cd5120;
+$color-green: #1ec2a4;
+$color-blue-two: #2d68f0;
+
+//headings
+h1 {
+    font-family: $font-antonio;
+    font-size: 80px;
+    line-height: 103px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: $font-antonio;
+    font-size: 40px;
+    line-height: 52px;
+    font-weight: 500;
+    letter-spacing: -1.5px;
+}
+
+h3, button {
+    font-family: $font-spartan;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: 700;
+    letter-spacing: 2.6px;
+    text-transform: uppercase;
+}
+
+h4, a {
+    font-family: $font-spartan;
+    font-size: 11px;
+    line-height: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:visited {
+        color: $color-white;
+    }
+}
+
+h5 {
+    font-family: $font-antonio;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+//body
+body {
+    color: $color-white;
+    margin: 0;
+    padding: 0;
+    background: url('/images/background-stars.svg') center no-repeat, #000;
+    background-size: cover;
+}
+
+p, span {
+    font-family: $font-spartan;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+//containers
+.container {
+    max-width: 1400px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+
+
+
+

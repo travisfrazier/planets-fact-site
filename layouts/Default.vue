@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <div>
-            <h1>The Planets</h1>
+    <div class="container">
+        <div class="nav-wrapper">
+            <h5>The Planets</h5>
             <nav>
                 <NuxtLink to="/">Mercury</NuxtLink>
                 <NuxtLink to="venus">Venus</NuxtLink>
@@ -23,10 +23,20 @@
 </script>
 
 <style lang="scss">
-body {
-    margin: 0;
-    padding: 0;
-    background: url('/images/background-stars.svg') center no-repeat, #000;
-    background-size: cover;
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0px;
+    nav {
+        display: flex;
+        gap: 24px;
+        a {
+            transition: opacity .5s ease-in-out;
+            &:hover {
+                opacity: .5;
+            }
+        }
+    }
 }
 </style>
