@@ -98,6 +98,7 @@ export default {
 		display: flex;
 		gap: 24px;
 		a {
+            color: inherit;
 			transition: opacity 0.5s ease-in-out;
 			&:hover {
 				opacity: 0.5;
