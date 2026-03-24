@@ -10,4 +10,9 @@ export default defineNuxtConfig({
       },
     },
   },
-})
+  runtimeConfig: {
+    contentfulSpaceId: process.env.CONTENTFUL_SPACE_ID,
+    contentfulAccessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    contentfulPreviewToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
+  },
+});
