@@ -1,26 +1,41 @@
 <template>
   <main>
     <div class="planet-buttons mobile">
-      <button v-bind:class="{ active: overview }" @click="viewOverview">
-        Overview
-      </button>
-      <button v-bind:class="{ active: structure }" @click="viewStructure">
-        Structure
-      </button>
-      <button v-bind:class="{ active: geology }" @click="viewGeology">
-        Geology
-      </button>
+      <Button
+        text="Overview"
+        :color="color"
+        :isActive="overview"
+        @click="viewOverview"
+      />
+      <Button
+        text="Structure"
+        :color="color"
+        :isActive="structure"
+        @click="viewStructure"
+      />
+      <Button
+        text="Geology"
+        :color="color"
+        :isActive="geology"
+        @click="viewGeology"
+      />
     </div>
     <section>
       <div class="planet-top">
         <div class="planet-image">
-          <img v-show="overview || geology" :src="planet.images.planet" />
-          <img v-show="structure" :src="planet.images.internal" />
-          <img
-            class="geology-img"
-            v-show="geology"
-            :src="planet.images.geology"
-          />
+          <Transition name="fade" mode="out-in">
+            <img
+              :key="structure ? 'internal' : 'planet'"
+              :src="structure ? planet.images.internal : planet.images.planet"
+            />
+          </Transition>
+          <Transition name="fade">
+            <img
+              class="geology-img"
+              v-if="geology"
+              :src="planet.images.geology"
+            />
+          </Transition>
         </div>
         <div class="planet-info">
           <div>
@@ -158,6 +173,15 @@ section {
         width: 75px;
       }
     }
+
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity 0.25s ease;
+    }
+    .fade-enter-from,
+    .fade-leave-to {
+      opacity: 0;
+    }
   }
 }
 
@@ -171,6 +195,7 @@ section {
     text-transform: capitalize;
     text-decoration: underline;
     font-size: 14px;
+    color: $color-white;
     &:after {
       content: url("/images/icon-source.svg");
       width: 12px;
@@ -192,23 +217,6 @@ section {
   gap: 16px;
   @media only screen and (max-width: 630px) {
     order: 0;
-  }
-  button {
-    cursor: pointer;
-    padding: 16px 0px 16px 28px;
-    background: none;
-    color: $color-white;
-    border: 1px solid $color-white;
-    text-align: left;
-    transition: all 0.4s ease-in-out;
-    &:hover {
-      background-color: $color-dark-grey;
-      border-color: $color-dark-grey;
-    }
-    &.active {
-      background-color: v-bind(color);
-      border-color: v-bind(color);
-    }
   }
   &.desktop {
     @media only screen and (max-width: 630px) {
